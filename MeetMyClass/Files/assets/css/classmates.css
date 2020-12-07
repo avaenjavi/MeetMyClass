@@ -1,0 +1,26 @@
+#classmates {
+  font-family: Poppins, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin: auto;
+  margin-top: 10%;
+}
+
+#classmates td, #classmates th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#classmates tr:nth-child(even){background-color: #f2f2f2;}
+
+#classmates tr:nth-child(odd){background-color: white;}
+
+#classmates tr:hover {background-color: #ddd;}
+
+#classmates th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0055A2;
+  color: white;
+}

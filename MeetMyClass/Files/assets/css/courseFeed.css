@@ -1,0 +1,8 @@
+/* External style sheet */
+#editPost		{width: 700px; background-color:white; margin-left: 500px; 
+				padding: 5px 20px 40px 10px; text-align: left;}
+
+#courseName		{color:white;}
+#postTime		{text-align: right; margin-right: 480px;}
+
+input[type = "button"]	{margin-top: 10px; width: 10%; border-style: solid; background-color:rgba(255,215,0,0.6);}

@@ -1,0 +1,37 @@
+.main{
+    width: 70%;
+    background: rgba(0, 0, 0, .7);
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 70px;
+}
+
+.btn{
+    padding: 10px 20px;
+    font-size: large;
+    font-weight: 500;
+    font-family: 'Montserrat' ;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 8px;
+    transition: .3s ease background-color;
+}
+
+.btn:hover{
+    background-color: rgba(30, 107, 230, 0.6);
+}
+
+.img{
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+}

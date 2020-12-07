@@ -1,0 +1,271 @@
+.navigation-clean-search {
+  background: #0055A2;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0;
+}
+
+@media (min-width:768px) {
+  .navigation-clean-search {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.navigation-clean-search .navbar-brand {
+  font-weight: bold;
+  color: inherit;
+}
+
+.navigation-clean-search .navbar-brand:hover {
+  color: #222;
+}
+
+.navigation-clean-search .navbar-toggler {
+  border-color: #ddd;
+}
+
+.navigation-clean-search .navbar-toggler:hover, .navigation-clean-search .navbar-toggler:focus {
+  background: none;
+}
+
+.navigation-clean-search .navbar-toggler {
+  color: #888;
+}
+
+.navigation-clean-search .navbar-collapse, .navigation-clean-search .form-inline {
+  border-top-color: #ddd;
+}
+
+.navigation-clean-search .navbar-nav a.active, .navigation-clean-search .navbar-nav > .show > a {
+  background: none;
+  box-shadow: none;
+}
+
+.navigation-clean-search.navbar-light .navbar-nav a.active, .navigation-clean-search.navbar-light .navbar-nav a.active:focus, .navigation-clean-search.navbar-light .navbar-nav a.active:hover {
+  color: #fff !important;
+  box-shadow: none;
+  background: none;
+  pointer-events: none;
+}
+
+.navigation-clean-search.navbar .navbar-nav .nav-link {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.navigation-clean-search.navbar-light .navbar-nav .nav-link {
+  color: #465765;
+}
+
+.navigation-clean-search.navbar-light .navbar-nav .nav-link:focus, .navigation-clean-search.navbar-light .navbar-nav .nav-link:hover {
+  color: #709dcb !important;
+  background-color: transparent;
+}
+
+.navigation-clean-search .action-button, .navigation-clean-button .action-button:active {
+  background: #E5A823;
+  border-radius: 18px;
+  font-size: inherit;
+  color: #fff !important;
+  box-shadow: none;
+  border: none;
+  text-shadow: none;
+  padding: 10px;
+  transition: background-color 0.25s;
+}
+
+.navigation-clean-search .action-button:hover, .navigation-clean-search .action-button:focus {
+  background: #939597;
+}
+
+.navigation-clean-search .form-inline label {
+  color: #ccc;
+}
+
+.navigation-clean-search .form-inline .search-field {
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  color: #ccc;
+  box-shadow: none;
+  color: inherit;
+  transition: border-bottom-color 0.3s;
+}
+
+@media (max-width:767px) {
+  .navigation-clean-search .form-inline .search-field {
+    display: inline-block;
+    width: 80%;
+  }
+}
+
+.navigation-clean-search .form-inline .search-field:focus {
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar-light .navbar-brand {
+  color: #000000;
+  width: 150px;
+  background: url("../../assets/img/MeetMyClass%20Logo.png") top / cover no-repeat;
+  height: 134px;
+  opacity: 1;
+}
+
+#Section-1 {
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  background: url("../../assets/img/blackboard%20img.jpg") center / cover no-repeat;
+}
+
+.form {
+  margin: 50px auto 0px;
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.nav-item, .button {
+  color: #fff !important;
+  margin: 5px;
+}
+
+.btn1 {
+  background: firebrick;
+  border-radius: 4px;
+  font-size: inherit;
+  color: #fff !important;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+  text-shadow: none;
+  padding: 90px;
+  margin: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.25s;
+}
+
+.btn2 {
+  background: forestgreen;
+  border-radius: 4px;
+  font-size: inherit;
+  color: #fff !important;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+  text-shadow: none;
+  padding: 90px;
+  margin: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.25s;
+}
+
+.btn3 {
+  background: mediumpurple;
+  border-radius: 4px;
+  font-size: inherit;
+  color: #fff !important;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+  text-shadow: none;
+  padding: 90px;
+  margin: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.25s;
+}
+
+.btn4 {
+  background: cornflowerblue;
+  border-radius: 4px;
+  font-size: inherit;
+  color: #fff !important;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+  text-shadow: none;
+  padding: 90px;
+  margin: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.25s;
+}
+
+.btn1:hover, button:focus {
+  background: #939597;
+}
+
+.btn2:hover, button:focus {
+  background: #939597;
+}
+
+.btn3:hover, button:focus {
+  background: #939597;
+}
+
+.btn4:hover, button:focus {
+  background: #939597;
+}
+
+/* Dropdown search */
+.dropbtn {
+  background-color: #0055A2;
+  color: white;
+  padding: 8px 20px;
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #939597;
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 12px 18px 10px 40px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}

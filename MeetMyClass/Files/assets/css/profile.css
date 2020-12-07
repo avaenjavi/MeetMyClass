@@ -1,0 +1,19 @@
+/* External style sheet */
+#editName		{font-size: 26pt; font-weight: bold; text-align: left; margin-left: 30px; color:#C59900; width: 500px;}
+.bio			{font-size: 18pt; font-weight: bold; text-align: left; margin-left: 30px; color:#C59900;}
+.major			{font-size: 18pt; font-weight: bold; text-align: left; margin-left: 30px; color:#C59900;}
+#editBio		{width: 700px; background-color:white; margin-left: 30px; margin-right: 30px; 
+				padding: 5px 20px 40px 10px; text-align: left;}
+
+#updateBio		{margin:20px; color: white; text-align: left; margin-left: 30px;}
+#updateName		{margin:20px; color: white; text-align: left; margin-left: 30px;}
+#updateMajor	{margin:20px; color: white; text-align: left; margin-left: 30px;}
+
+#editMajor 		{color: white; font-size: 18pt; text-align: left; margin-left: 30px; width: 500px;}
+
+input[type = "button"]	{border-style: solid; background-color:rgba(142,135,135,0.6);}
+
+#profilePicture	{position: absolute;, background-size: cover; width: 500; height: 500px;
+  				display: block; top: 200px; right: 50px; border: 3px solid black; border-radius: 100%;}
+
+.Profile 		{font-size: 12pt; font-weight: bold; text-align: left; margin-left: 30px; color: white;}
