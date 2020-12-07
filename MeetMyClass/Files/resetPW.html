@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <script src="assets/js/search.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	function confirmPW()
+		{
+			var currentPW = document.forms["resetPW"]["currentPW"].value;
+			var newPW = document.forms["resetPW"]["newPW"].value;
+			var newPW1 = document.forms["resetPW"]["newPW1"].value;
+			var SJSUid = document.forms["resetPW"]["ID"].value;
+			var email = document.forms["resetPW"]["email"].value;
+			
+			if (newPW != newPW1)
+			{
+				alert("New passwords do not match. Please re-enter password");
+				return false;
+			}
+			else
+			{	
+				if (SJSUid == localStorage.SJSUid && email == localStorage.email)
+				{
+					if (currentPW == localStorage.userPassword)
+					{
+						localStorage.userPassword = newPW;
+						alert("Password successfully changed");
+					}
+					else
+					{
+						alert("Current password is incorrect");
+						return false;
+					}
+				}
+				else
+				{
+					alert("SJSU ID/email combination is not valid. Please try again");
+					return false;
+				}
+			}
+		}
+	</script>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        .open-button {
+          background-color: #555;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          opacity: 0.8;
+          position: fixed;
+          bottom: 23px;
+          right: 28px;
+          width: 280px;
+        }
+
+        .form-popup {
+          display: none;
+          position: fixed;
+          bottom: 0;
+          right: 15px;
+          border: 3px solid #f1f1f1;
+          z-index: 9;
+        }
+
+        .form-container {
+          max-width: 300px;
+          padding: 10px;
+          background-color: white;
+        }
+
+        .form-container input[type=text], .form-container input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        .form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+
+        .form-container .cancel {
+          background-color: red;
+        }
+
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+
+        #logout{
+          margin-right: 40px;
+        }
+
+        div {text-align: center;}
+    </style>
+   
+</head>
+
+<body onload="checkEdits()">
+    <section id="Section-1">
+    <!-- Start: Navigation with Search -->
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="height: 144px;">
+        <div class="container"><a class="navbar-brand" href="index.html"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1" style="font-size: 20px;">
+                <ul class="nav navbar-nav mr-auto" style="font-family: Poppins, sans-serif;">
+                    <li class="nav-item"><a class="button" href="index.html"><strong>Groups</strong></a></li>
+                    <li class="nav-item"><a class="button" href="classmates.html"><strong>My Classmates</strong></a></li>
+                    <li class="nav-item"><a class="button" href="about.html"><strong>About Us</strong></a></li>
+                    <li class="nav-item"><a class="button" href="contact.html"><strong>Contact</strong></a></li>
+                </ul>
+                <div class="dropdown">
+                  <input type="text" onclick="myFunction()" placeholder="Search Users" id="myInput"onkeyup="filterFunction()">
+                  <div id="myDropdown" class="dropdown-content">
+                    <a href="jesse.html">Jesse Campbell</a>
+                    <a href="ava.html">Ava Enjavi</a>
+                    <a href="kyle.html">Kyle Reif</a>
+                    <a href="billy.html">Chunkit Tam</a>
+                  </div>
+                </div>
+                </form><a class="btn btn-light ml-auto action-button" role="button" href="profile.html" style="font-family: Poppins, sans-serif;font-size: 20px;"><strong>My Profile</strong></a></div>
+              <ul class="nav navbar-nav mr-auto" style="font-family: Poppins, sans-serif;">
+                    <li class="nav-item"><a class="button" href="login.html"><strong>Logout</strong></a></li></li>
+              </ul>
+        </div>
+    </nav>
+
+        <div class="container1" id="Contact">
+          <form name="resetPW" method="POST" id="resetPW" onsubmit="return confirmPW()" action="profile.html">
+            <div class="form-group1">
+              <label for="firstName">SJSU ID</label>
+              <input type="text" id="ID" name="ID" required>
+            </div>
+
+            <div class="form-group1">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group1">
+              <label for="currentPW">Current Password</label>
+              <input type="password" id="currentPW" name="currentPW" required>
+            </div>
+
+            <div class="form-group1">
+              <label for="newPW">New Password</label>
+              <input type="password" id="newPW" name="newPW" required></textarea>
+            </div>
+
+            <div class="form-group1">
+              <label for="confirmPW">Confirm New Password</label>
+              <input type="password" id="newPW1" name="newPW1" required></textarea>
+            </div>
+
+            <button type="submit" class="btn5"> Change</button>
+
+          </form>
+          </div>
+
+
+
+        <!-- End: Navigation with Search -->
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    
+</body>
+
+</html>
