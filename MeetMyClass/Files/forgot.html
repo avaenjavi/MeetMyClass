@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Request Credentials</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+	var verifyEmail = localStorage.email;
+	var verifyID = localStorage.SJSUid;
+	var verifyPassword = localStorage.userPassword;
+	function sendEmail()
+	{
+		Email.send({
+		Host: "smtp.gmail.com",
+		Username : "meetmyclass118w@gmail.com",
+		Password : "118w118w",
+		To : verifyEmail,
+		From : "meetmyclass118w@gmail.com",
+		Subject : "MeetMyClass Account Credentials",
+		Body : "You are receiving this email because a request for your account credentials has been made. If you did not make this request, please disregard this email." + "<br>SJSU ID: " + verifyID + "</br>" + "<br>Password: " + verifyPassword + "</br>",
+		})
+	}
+
+	function confirmPW()
+		{
+			var email = document.forms["forgot"]["email"].value;
+			
+			if (email == localStorage.email)
+			{
+				sendEmail();
+				alert("A recovery email has been sent to " + verifyEmail)
+			}	
+			else
+			{
+				alert("Email is not registered. Please try again");
+				return false;
+			}
+		}
+
+</script>
+</head>
+<body>
+	<div class = "header">
+		<img src = "Logo.png" width = "100%" alt = "MeetMyClass">
+	</div>
+
+	<form name="forgot" onsubmit ="return confirmPW()" action="login.html" method = "POST">
+		<div class="form">
+			<label>Email</label>
+			<input type="email" name="email" required>
+		</div>
+		<div class="form">
+			<button type = "submit" name = "submit" class = "button">Submit</button>
+		</div>
+		<p>
+			<a href="login.html">Cancel Request</a>
+		</p>
+	</form>
+
+
+</body>
+</html>

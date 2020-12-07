@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="assets/animate/animate.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<script>
+		function checkValues()
+		{
+			var SJSUid = document.forms["login"]["ID"].value;
+			var userPassword = document.forms["login"]["password"].value;
+			var form = document.getElementById("login");
+
+			if (SJSUid == localStorage.SJSUid && userPassword == localStorage.userPassword)
+			{
+				 form.action = "index.html";
+			}
+			else
+			{
+				alert("SJSU ID/Password combination is not valid. Please try again");
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+	<div class = "header" data-tilt data-tilt-max="10">  
+		<img src = "Logo.png" width = "100%" alt = "MeetMyClass">
+	</div>
+
+	<form id = "login" name = "login" method = "POST" onsubmit="return checkValues()">
+		<div class="form">
+			<label>SJSU ID</label>
+			<input type="text" name="ID" required maxlength = "9">
+		</div>
+		<div class="form">
+			<label>Password</label>
+			<input type="password" name="password" required>
+		</div>
+		<div class="form">
+			<button type = "submit" name = "login" class = "button">Login</button>
+		</div>
+		<div class = "forgot">
+			Forgot <a href="forgot.html">ID/Password?</a>
+		</div>
+		<p>
+			Don't have an account? <a href="registration.html">Sign up</a>
+		</p>
+	</form>
+	</div>
+
+	<script src="assets/tilt/vanilla-tilt.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Course Feed</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/courseFeed.css">
+    <link rel="stylesheet" href="assets/css/resetPW.css">
+    <script src="assets/js/search.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      function determineFeed()
+      {
+        if (localStorage.btn1Clicked == "true")
+        {
+          postToFeed1();
+        }
+        else if (localStorage.btn2Clicked == "true")
+        {
+          postToFeed2();
+        }
+        else if (localStorage.btn3Clicked == "true")
+        {
+          postToFeed3();
+        }
+        else if (localStorage.btn4Clicked == "true")
+        {
+          postToFeed4();
+        }
+      }
+      
+      function postToFeed1()
+      {
+        var editPost1 = document.getElementById("editPost");
+        var storagePost1 = editPost1.innerHTML;
+        localStorage.userFeed1 = storagePost1;
+        alert("Posted to course feed!");
+        var date = new Date().toLocaleString();
+        localStorage.date1 = date;
+        document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date1;
+        document.getElementById("button").value = "Edit Post";
+      }
+      function postToFeed2()
+      {
+        var editPost2 = document.getElementById("editPost");
+        var storagePost2 = editPost2.innerHTML;
+        localStorage.userFeed2 = storagePost2;
+        alert("Posted to course feed!");
+        var date = new Date().toLocaleString();
+        localStorage.date2 = date;
+        document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date2;
+        document.getElementById("button").value = "Edit Post"
+      }
+      function postToFeed3()
+      {
+        var editPost3 = document.getElementById("editPost");
+        var storagePost3 = editPost3.innerHTML;
+        localStorage.userFeed3 = storagePost3;
+        alert("Posted to course feed!");
+        var date = new Date().toLocaleString();
+        localStorage.date3 = date;
+        document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date3;
+        document.getElementById("button").value = "Edit Post"
+      }
+      function postToFeed4()
+      {
+        var editPost4 = document.getElementById("editPost");
+        var storagePost4 = editPost4.innerHTML;
+        localStorage.userFeed4 = storagePost4;
+        alert("Posted to course feed!");
+        var date = new Date().toLocaleString();
+        localStorage.date4 = date;
+        document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date4;
+        document.getElementById("button").value = "Edit Post"
+      }
+      
+      function checkEdits()
+      {
+        if(localStorage.userFeed1!=null && localStorage.userFeed1!="" && localStorage.btn1Clicked == "true")
+        {
+          document.getElementById("editPost").innerHTML=localStorage.userFeed1;
+          document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date1;
+        }
+        if(localStorage.userFeed2!=null && localStorage.userFeed2!="" && localStorage.btn2Clicked == "true")
+        {
+          document.getElementById("editPost").innerHTML=localStorage.userFeed2;
+          document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date2;
+        }
+        if(localStorage.userFeed3!=null && localStorage.userFeed3!="" && localStorage.btn3Clicked == "true")
+        {  
+          document.getElementById("editPost").innerHTML=localStorage.userFeed3;
+          document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date3;
+        }
+        if(localStorage.userFeed4!=null && localStorage.userFeed4!="" && localStorage.btn4Clicked == "true")
+        {
+          document.getElementById("editPost").innerHTML=localStorage.userFeed4;
+          document.getElementById("postTime").innerHTML = "Posted by " + localStorage.userNameEdits + " on " + localStorage.date4;
+        }
+      }
+
+    </script>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        .open-button {
+          background-color: #555;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          opacity: 0.8;
+          position: fixed;
+          bottom: 23px;
+          right: 28px;
+          width: 280px;
+        }
+
+        .form-popup {
+          display: none;
+          position: fixed;
+          bottom: 0;
+          right: 15px;
+          border: 3px solid #f1f1f1;
+          z-index: 9;
+        }
+
+        .form-container {
+          max-width: 300px;
+          padding: 10px;
+          background-color: white;
+        }
+
+        .form-container input[type=text], .form-container input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        .form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+
+        .form-container .cancel {
+          background-color: red;
+        }
+
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+
+        #logout{
+          margin-right: 40px;
+        }
+
+        div {text-align: center;}
+    </style>
+   
+</head>
+
+<body onload="checkEdits()">
+  <section id="Section-1">
+    <!-- Start: Navigation with Search -->
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="height: 144px;">
+        <div class="container"><a class="navbar-brand" href="index.html"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1" style="font-size: 20px;">
+                <ul class="nav navbar-nav mr-auto" style="font-family: Poppins, sans-serif;">
+                    <li class="nav-item"><a class="button" href="index.html"><strong>Groups</strong></a></li>
+                    <li class="nav-item"><a class="button" href="classmates.html"><strong>My Classmates</strong></a></li>
+                    <li class="nav-item"><a class="button" href="about.html"><strong>About Us</strong></a></li>
+                    <li class="nav-item"><a class="button" href="contact.html"><strong>Contact</strong></a></li>
+                </ul>
+                <div class="dropdown">
+                  <input type="text" onclick="myFunction()" placeholder="Search Users" id="myInput"onkeyup="filterFunction()">
+                  <div id="myDropdown" class="dropdown-content">
+                    <a href="jesse.html">Jesse Campbell</a>
+                    <a href="ava.html">Ava Enjavi</a>
+                    <a href="kyle.html">Kyle Reif</a>
+                    <a href="billy.html">Chunkit Tam</a>
+                  </div>
+                </div>
+                </form><a class="btn btn-light ml-auto action-button" role="button" href="profile.html" style="font-family: Poppins, sans-serif;font-size: 20px;"><strong>My Profile</strong></a></div>
+              <ul class="nav navbar-nav mr-auto" style="font-family: Poppins, sans-serif;">
+                    <li class="nav-item"><a class="button" href="login.html"><strong>Logout</strong></a></li></li>
+              </ul>
+        </div>
+    </nav>
+
+	<script type="text/javascript">
+			if (localStorage.displayCourse != "<strong></strong>" && localStorage.displayCourse != "")
+			{
+				document.write("<p><div id='courseName'></p>");
+        document.write("<h1>" + localStorage.displayCourse + "</h1>");
+        document.write("</div>");
+			}
+			else
+			{
+				document.write("<p><div id='courseName'></p>");
+        document.write("<h1>No course has been selected. Please add a course</h1>");
+        document.write("</div>");
+			}
+
+	</script>
+
+  
+  <div id="editPost" contenteditable="true" required></div>
+  <div id="postButton">
+  <div id="postTime"></div>
+  <input id = "button" type="button" value="Post" onclick="determineFeed()"/>
+  </div>
+
+
+        <!-- End: Navigation with Search -->
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    
+</body>
+
+</html>

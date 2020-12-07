@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>My Groups</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/search.js"></script>
+    <script type="text/javascript">
+
+      function saveCourse1()
+      {
+        var editCourse1 = document.getElementById("1");
+        var storageCourse1 = editCourse1.innerHTML;
+        localStorage.userCourse1 = storageCourse1;
+      }
+      function saveCourse2()
+      {
+        var editCourse2 = document.getElementById("2");
+        var storageCourse2 = editCourse2.innerHTML;
+        localStorage.userCourse2 = storageCourse2;
+      }
+      function saveCourse3()
+      {
+        var editCourse3 = document.getElementById("3");
+        var storageCourse3 = editCourse3.innerHTML;
+        localStorage.userCourse3 = storageCourse3;
+      }
+      function saveCourse4()
+      {
+        var editCourse4 = document.getElementById("4");
+        var storageCourse4 = editCourse4.innerHTML;
+        localStorage.userCourse4 = storageCourse4;
+      }
+      function checkCourseEdits()
+      {
+        localStorage.btn1Clicked = false;
+        localStorage.btn2Clicked = false;
+        localStorage.btn3Clicked = false;
+        localStorage.btn4Clicked = false;
+        if(localStorage.userCourse1!=null)
+          document.getElementById("1").innerHTML=localStorage.userCourse1;
+        if(localStorage.userCourse2!=null)
+          document.getElementById("2").innerHTML=localStorage.userCourse2;
+        if(localStorage.userCourse3!=null)
+          document.getElementById("3").innerHTML=localStorage.userCourse3;
+        if(localStorage.userCourse4!=null)
+          document.getElementById("4").innerHTML=localStorage.userCourse4;
+      }
+
+      function checkButton1()
+      {
+        var displayCourse = document.getElementById("1").innerHTML;
+        localStorage.btn1Clicked = true;
+        localStorage.displayCourse = displayCourse;
+      }
+      function checkButton2()
+      {
+        var displayCourse = document.getElementById("2").innerHTML;
+        localStorage.btn2Clicked = true;
+        localStorage.displayCourse = displayCourse;
+      }
+      function checkButton3()
+      {
+        var displayCourse = document.getElementById("3").innerHTML;
+        localStorage.btn3Clicked = true;
+        localStorage.displayCourse = displayCourse;
+      }
+      function checkButton4()
+      {
+        var displayCourse = document.getElementById("4").innerHTML;
+        localStorage.btn4Clicked = true;
+        localStorage.displayCourse = displayCourse;
+      }
+
+    </script>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        .open-button {
+          background-color: #555;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          opacity: 0.8;
+          position: fixed;
+          bottom: 23px;
+          right: 28px;
+          width: 280px;
+        }
+
+        .form-popup {
+          display: none;
+          position: fixed;
+          bottom: 0;
+          right: 15px;
+          border: 3px solid #f1f1f1;
+          z-index: 9;
+        }
+
+        .form-container {
+          max-width: 300px;
+          padding: 10px;
+          background-color: white;
+        }
+
+        .form-container input[type=text], .form-container input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        .form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+
+        .form-container .cancel {
+          background-color: red;
+        }
+
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+
+        .btn-group label {
+          font-family: "Lucida Console", Courier, monospace;
+        }
+
+    </style>
+    <script>    
+        var myCourses = [];
+        function getCourse()
+        {
+             var courses = ["BUS1 20", "BUS1 20N", "BUS1 21", "BUS1 92", "BUS1 120A", "BUS1 120B", "BUS1 120C", "BUS1 120D", "BUS1 120E", "BUS1 120G", "BUS1 121A", "BUS1 121B", "BUS1 122A", "BUS1 123A", "BUS1 123C", "BUS1 124", "BUS1 125", "BUS1 125A", "BUS1 125B", "BUS1 125C", "BUS1 125D", "BUS1 126", "BUS1 127A", "BUS1 127B", "BUS1 128", "BUS1 129A", "BUS1 129B", "BUS1 170", "BUS1 171A", "BUS1 171B", "BUS1 172A", "BUS1 172B", "BUS1 172C", "BUS1 172D", "BUS1 173A", "BUS1 173B", "BUS1 173C", "BUS1 175", "BUS1 177", "BUS1 179B", "BUS1 180A", "BUS1 180C", "BUS1 192", "BUS1 196B", "BUS2 90", "BUS2 92", "BUS2 130", "BUS2 131A", "BUS2 131B", "BUS2 131D", "BUS2 132B", "BUS2 133A", "BUS2 133B", "BUS2 133C", "BUS2 133E", "BUS2 134A", "BUS2 134B", "BUS2 134C", "BUS2 135", "BUS2 136", "BUS2 137A", "BUS2 137H", "BUS2 137S", "BUS2 138", "BUS2 139", "BUS2 180F", "BUS2 190", "BUS2 191", "BUS2 192A", "BUS2 193", "BUS2 194A", "BUS2 194B", "BUS2 195A", "BUS2 195B", "BUS2 195C", "BUS2 195D", "BUS3 10", "BUS3 12", "BUS3 80", "BUS3 92", "BUS3 148", "BUS3 149", "BUS3 150", "BUS3 151", "BUS3 152", "BUS3 153", "BUS3 154", "BUS3 155", "BUS3 156", "BUS3 157", "BUS3 158", "BUS3 159", "BUS3 160", "BUS3 161A", "BUS3 161B", "BUS3 165", "BUS3 166", "BUS3 169A", "BUS3 180D", "BUS3 186", "BUS3 189", "BUS3 192", "BUS4 91A", "BUS4 91L", "BUS4 92", "BUS4 92I", "BUS4 110A", "BUS4 110B", "BUS4 111", "BUS4 112", "BUS4 115", "BUS4 116", "BUS4 118C", "BUS4 118D", "BUS4 118H", "BUS4 118S", "BUS4 118W", "BUS4 119A", "BUS4 119B", "BUS4 119H", "BUS4 180I", "BUS4 188", "BUS4 192", "BUS5 16", "BUS5 40", "BUS5 92", "BUS5 140", "BUS5 141", "BUS5 141B", "BUS5 142", "BUS5 142B", "BUS5 144", "BUS5 144B", "BUS5 145", "BUS5 145B", "BUS5 146", "BUS5 147", "BUS5 148", "BUS5 162", "BUS5 162A", "BUS5 163", "BUS5 163A", "BUS5 163B", "BUS5 164", "BUS5 164A", "BUS5 164B", "BUS5 165A", "BUS5 165B", "BUS5 167", "BUS5 169B", "BUS5 180D", "BUS5 181", "BUS5 182", "BUS5 182A", "BUS5 183", "BUS5 184A", "BUS5 185", "BUS5 186H", "BUS5 186S", "BUS5 186V", "BUS5 187", "BUS5 192", "BUS5 194", "BUS5 196", "BUS5 196E", "BUS5 196F", "BUS5 197", "BUS5 198",]
+             var courseSubject = document.forms["SJSU"]["subject"].value;
+             var courseNumber = document.forms["SJSU"]["number"].value;
+             courseNumber = courseNumber.toUpperCase();
+             var dashboardNumber = document.forms["SJSU"]["dashboard#"].value;
+             var SJSUcourse = courseSubject + " " + courseNumber;
+             var validCourse = courses.includes(SJSUcourse);
+             var changeCourse1 = document.getElementById("1");
+             var changeCourse2 = document.getElementById("2");
+             var changeCourse3 = document.getElementById("3");
+             var changeCourse4 = document.getElementById("4");
+             var courseSelected = false;
+
+             if (courseSubject == "None")
+             {
+                alert("Select a course subject");
+             }
+             else if (courseNumber == "")
+             {
+                alert("Enter a course number")
+             }
+             else if (validCourse == false)
+             {
+                alert(SJSUcourse + " is not a valid SJSU course");
+             }
+             else
+             {
+                courseSelected = true;
+             }
+
+             if (courseSelected == true && dashboardNumber == "1" && changeCourse1.textContent == "" && myCourses.includes(SJSUcourse) == false && SJSUcourse != localStorage.userCourse1 && SJSUcourse != localStorage.userCourse2 && SJSUcourse != localStorage.userCourse3 && SJSUcourse != localStorage.userCourse4)
+             {
+                changeCourse1.innerHTML = SJSUcourse;
+                myCourses.push(SJSUcourse);
+                saveCourse1();
+             }
+             else if ((courseSelected == true && dashboardNumber == "1" && changeCourse1.textContent == "") && (SJSUcourse == localStorage.userCourse1 || SJSUcourse == localStorage.userCourse2 || SJSUcourse == localStorage.userCourse3 || SJSUcourse == localStorage.userCourse4))
+             {
+              alert(SJSUcourse + " has already been added to the dashboard. Please select another course");
+             }
+             else if (courseSelected == true && dashboardNumber == "1" && changeCourse1.textContent != "")
+             {
+              alert("Course 1 has already been selected. Please remove this course before adding a new one")
+             }
+             
+             if (courseSelected == true && dashboardNumber == "2"  && changeCourse2.textContent == "" && myCourses.includes(SJSUcourse) == false && SJSUcourse != localStorage.userCourse1 && SJSUcourse != localStorage.userCourse2 && SJSUcourse != localStorage.userCourse3 && SJSUcourse != localStorage.userCourse4)
+             {
+                changeCourse2.innerHTML = SJSUcourse;
+                myCourses.push(SJSUcourse);
+                saveCourse2();
+             }
+             else if ((courseSelected == true && dashboardNumber == "2" && changeCourse2.textContent == "") && (SJSUcourse == localStorage.userCourse1 || SJSUcourse == localStorage.userCourse2 || SJSUcourse == localStorage.userCourse3 || SJSUcourse == localStorage.userCourse4))
+             {
+              alert(SJSUcourse + " has already been added to the dashboard. Please select another course");
+             }
+             else if (courseSelected == true && dashboardNumber == "2" && changeCourse2.textContent != "")
+             {
+              alert("Course 2 has already been selected. Please remove this course before adding a new one")
+             }
+             
+             if (courseSelected == true && dashboardNumber == "3" && changeCourse3.textContent == "" && myCourses.includes(SJSUcourse) == false && SJSUcourse != localStorage.userCourse1 && SJSUcourse != localStorage.userCourse2 && SJSUcourse != localStorage.userCourse3 && SJSUcourse != localStorage.userCourse4)
+             {
+                changeCourse3.innerHTML = SJSUcourse;
+                myCourses.push(SJSUcourse);
+                saveCourse3();
+             }
+             else if ((courseSelected == true && dashboardNumber == "3" && changeCourse3.textContent == "") && (SJSUcourse == localStorage.userCourse1 || SJSUcourse == localStorage.userCourse2 || SJSUcourse == localStorage.userCourse3 || SJSUcourse == localStorage.userCourse4))
+             {
+              alert(SJSUcourse + " has already been added to the dashboard. Please select another course");
+             }
+             else if (courseSelected == true && dashboardNumber == "3" && changeCourse3.textContent != "")
+             {
+              alert("Course 3 has already been selected. Please remove this course before adding a new one")
+             }
+            
+             if (courseSelected == true && dashboardNumber == "4" && changeCourse4.textContent == "" && myCourses.includes(SJSUcourse) == false && SJSUcourse != localStorage.userCourse1 && SJSUcourse != localStorage.userCourse2 && SJSUcourse != localStorage.userCourse3 && SJSUcourse != localStorage.userCourse4)
+             {
+                changeCourse4.innerHTML = SJSUcourse;
+                myCourses.push(SJSUcourse);
+                saveCourse4();
+             }
+             else if ((courseSelected == true && dashboardNumber == "4" && changeCourse4.textContent == "") && (SJSUcourse == localStorage.userCourse1 || SJSUcourse == localStorage.userCourse2 || SJSUcourse == localStorage.userCourse3 || SJSUcourse == localStorage.userCourse4))
+             {
+              alert(SJSUcourse + " has already been added to the dashboard. Please select another course");
+             }
+             else if (courseSelected == true && dashboardNumber == "4" && changeCourse4.textContent != "")
+             {
+              alert("Course 4 has already been selected. Please remove this course before adding a new one")
+             }
+        }
+
+        function removeCourse()
+        {
+           var dashboardNumber = document.forms["SJSU"]["dashboard#"].value;
+           var removeCourse1 = document.getElementById("1");
+           var removeCourse2 = document.getElementById("2");
+           var removeCourse3 = document.getElementById("3");
+           var removeCourse4 = document.getElementById("4");
+
+           if (dashboardNumber == "1" && removeCourse1.textContent != "")
+           {
+              alert(removeCourse1.textContent + " removed from dashboard");
+              localStorage.userFeed1 = "";;
+              for(var i in myCourses)
+              {
+                if(myCourses[i]==removeCourse1.textContent)
+                {
+                  myCourses.splice(i,1);
+                }
+              }
+              removeCourse1.innerHTML = "";
+              saveCourse1();
+           }
+           else if (dashboardNumber == "1" && removeCourse1.textContent == "")
+           {
+            alert("Course 1 has not been selected and cannot be removed")
+           }
+           
+           if (dashboardNumber == "2" && removeCourse2.textContent != "")
+           {
+              alert(removeCourse2.textContent + " removed from dashboard");
+              localStorage.userFeed2 = "";;
+              for(var i in myCourses)
+              {
+                if(myCourses[i]==removeCourse2.textContent)
+                {
+                  myCourses.splice(i,1);
+                }
+              }
+              removeCourse2.innerHTML = "";
+              saveCourse2();
+           }
+           else if (dashboardNumber == "2" && removeCourse2.textContent == "")
+           {
+            alert("Course 2 has not been selected and cannot be removed")
+           }
+           
+           if (dashboardNumber == "3" && removeCourse3.textContent != "")
+           {
+              alert(removeCourse3.textContent + " removed from dashboard");
+              localStorage.userFeed3 = "";;
+              for(var i in myCourses)
+              {
+                if(myCourses[i]==removeCourse3.textContent)
+                {
+                  myCourses.splice(i,1);
+                }
+              }
+              removeCourse3.innerHTML = "";
+              saveCourse3();
+           }
+           else if (dashboardNumber == "3" && removeCourse3.textContent == "")
+           {
+            alert("Course 3 has not been selected and cannot be removed")
+           }
+           
+           if (dashboardNumber == "4" && removeCourse4.textContent != "")
+           {
+              alert(removeCourse4.textContent + " removed from dashboard");
+              localStorage.userFeed4 = "";
+              for(var i in myCourses)
+              {
+                if(myCourses[i]==removeCourse4.textContent)
+                {
+                  myCourses.splice(i,1);
+                }
+              }
+              removeCourse4.innerHTML = "";
+              saveCourse4();
+           }
+           else if (dashboardNumber == "4" && removeCourse4.textContent == "")
+           {
+            alert("Course 4 has not been selected and cannot be removed")
+           }
+        }
+
+
+        function openForm() 
+        {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() 
+        {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        </script>
+
+</head>
+
+<body onload="checkCourseEdits()">
+    <section id="Section-1">
+        <!-- Start: Navigation with Search -->
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="height: 144px;">
+            <div class="container"><a class="navbar-brand" href="index.html"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1" style="font-size: 20px;">
+                    <ul class="nav navbar-nav mr-auto" style="font-family: Poppins, sans-serif;">
+                        <li class="nav-item"><a class="button" href="index.html"><strong>Groups</strong></a></li>
+                        <li class="nav-item"><a class="button" href="classmates.html"><strong>My Classmates</strong></a></li>
+                        <li class="nav-item"><a class="button" href="about.html"><strong>About Us</strong></a></li>
+                        <li class="nav-item"><a class="button" href="contact.html"><strong>Contact</strong></a></li>
+                    </ul>
+                    <div class="dropdown">
+                      <input type="text" onclick="myFunction()" placeholder="Search Users" id="myInput"onkeyup="filterFunction()">
+                      <div id="myDropdown" class="dropdown-content">
+                        <a href="jesse.html">Jesse Campbell</a>
+                        <a href="ava.html">Ava Enjavi</a>
+                        <a href="kyle.html">Kyle Reif</a>
+                        <a href="billy.html">Chunkit Tam</a>
+                      </div>
+                    </div>
+                    </form><a class="btn btn-light ml-auto action-button" role="button" href="profile.html" style="font-family: Poppins, sans-serif;font-size: 20px;"><strong>My Profile</strong></a></div>
+                  <ul class="nav navbar-nav mr-auto" style="font-family: Poppins, sans-serif;">
+                        <li class="nav-item"><a class="button" href="login.html"><strong>Logout</strong></a></li></li>
+                  </ul>
+            </div>
+        </nav>
+
+        <div class="bg-img">
+            <form action="coursePage.html" class="form">
+              <h1>My Groups</h1>
+                <div class="btn-group">
+                  <label>1</label>  
+                  <button type="submit" class="btn1" id="1" onclick="checkButton1();"><strong></strong></button>
+                  <label>2</label> 
+                  <button type="submit" class="btn2" id="2" onclick="checkButton2();"><strong></strong></button>
+                </div>
+                <div class="btn-group">
+                  <label>3</label> 
+                  <button type="submit" class="btn3" id="3" onclick="checkButton3();"><strong></strong></button>
+                  <label>4</label> 
+                  <button type="submit" class="btn4" id="4" onclick="checkButton4();"><strong></strong></button>
+                </div>
+            </form>
+          </div>
+
+
+        <button class="open-button" onclick="openForm()">Edit Groups</button>
+
+        <div class="form-popup" id="myForm">
+        <form name = "SJSU" action="#" class="form-container">
+            <label for = "dashboard#" title = "dashboard#">Group #</label>
+            <select id="dashboard#" name="dashboard#">
+                <optgroup label = "Course #">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </optgroup>
+            </select>
+            <p>
+            <label for = "Subject" title = "Course">Course Subject</label>
+            <select id="subject" name="subject">
+                <optgroup label = "Subject">
+                    <option value="None">Select</option>
+                    <option value="AAS">AAS</option>
+                    <option value="ADV">ADV</option>
+                    <option value="AE">AE</option>
+                    <option value="AFAM">AFAM</option>
+                    <option value="AFRS">AFRS</option>
+                    <option value="AMS">AMS</option>
+                    <option value="ANI">ANI</option>
+                    <option value="ANTH">ANTH</option>
+                    <option value="APSC">APSC</option>
+                    <option value="ARED">ARED</option>
+                    <option value="ART">ART</option>
+                    <option value="ARTH">ARTH</option>
+                    <option value="AS">AS</option>
+                    <option value="ASIA">ASIA</option>
+                    <option value="ASTR">ASTR</option>
+                    <option value="ATH">ATH</option>
+                    <option value="AUD">AUD</option>
+                    <option value="AVIA">AVIA</option>
+                    <option value="BIOL">BIOL</option>
+                    <option value="BME">BME</option>
+                    <option value="BOT">BOT</option>
+                    <option value="BUS">BUS</option>
+                    <option value="BUS1">BUS1</option>
+                    <option value="BUS2">BUS2</option>
+                    <option value="BUS3">BUS3</option>
+                    <option value="BUS4">BUS4</option>
+                    <option value="BUS5">BUS5</option>
+                    <option value="CA">CA</option>
+                    <option value="CCS">CCS</option>
+                    <option value="CE">CE</option>
+                    <option value="CHAD">CHAD</option>
+                    <option value="CHE">CHE</option>
+                    <option value="CHEM">CHEM</option>
+                    <option value="CHIN">CHIN</option>
+                    <option value="CMPE">CMPE</option>
+                    <option value="COLT">COLT</option>
+                    <option value="COMM">COMM</option>
+                    <option value="CS">CS</option>
+                    <option value="DANC">DANC</option>
+                    <option value="DATA">DATA</option>
+                    <option value="DSGD">DSGD</option>
+                    <option value="DSGN">DSGN</option>
+                    <option value="DSID">DSID</option>
+                    <option value="DSIT">DSIT</option>
+                    <option value="ECON">ECON</option>
+                    <option value="EDAD">EDAD</option>
+                    <option value="EDAU">EDAU</option>
+                    <option value="EDCO">EDCO</option>
+                    <option value="EDD">EDD</option>
+                    <option value="EDEL">EDEL</option>
+                    <option value="EDSC">EDSC</option>
+                    <option value="EDSE">EDSE</option>
+                    <option value="EDSP">EDSP</option>
+                    <option value="EDTE">EDTE</option>
+                    <option value="EDUC">EDUC</option>
+                    <option value="EE">EE</option>
+                    <option value="ENED">ENED</option>
+                    <option value="ENGL">ENGL</option>
+                    <option value="ENGR">ENGR</option>
+                    <option value="ENT">ENT</option>
+                    <option value="ENVS">ENVS</option>
+                    <option value="ESE">ESE</option>
+                    <option value="ESM">ESM</option>
+                    <option value="FLED">FLED</option>
+                    <option value="FORL">FORL</option>
+                    <option value="FREN">FREN</option>
+                    <option value="FS">FS</option>
+                    <option value="GEOG">GEOG</option>
+                    <option value="GEOL">GEOL</option>
+                    <option value="GERM">GERM</option>
+                    <option value="GERO">GERO</option>
+                    <option value="GLST">GLST</option>
+                    <option value="GRK">GRK</option>
+                    <option value="HA">HA</option>
+                    <option value="HEBR">HEBR</option>
+                    <option value="HIST">HIST</option>
+                    <option value="HPRF">HPRF</option>
+                    <option value="HSPM">HSPM</option>
+                    <option value="HTEM">HTEM</option>
+                    <option value="HUM">HUM</option>
+                    <option value="INFM">INFM</option>
+                    <option value="INFO">INFO</option>
+                    <option value="ISE">ISE</option>
+                    <option value="ITAL">ITAL</option>
+                    <option value="JOUR">JOUR</option>
+                    <option value="JPN">JPN</option>
+                    <option value="JS">JS</option>
+                    <option value="JWSS">JWSS</option>
+                    <option value="KIN">KIN</option>
+                    <option value="KNED">KNED</option>
+                    <option value="LATN">LATN</option>
+                    <option value="LING">LING</option>
+                    <option value="LLD">LLD</option>
+                    <option value="LSTP">LSTP</option>
+                    <option value="MARA">MARA</option>
+                    <option value="MATE">MATE</option>
+                    <option value="MATH">MATH</option>
+                    <option value="MCOM">MCOM</option>
+                    <option value="MDES">MDES</option>
+                    <option value="ME">ME</option>
+                    <option value="METR">METR</option>
+                    <option value="MICR">MICR</option>
+                    <option value="MILS">MILS</option>
+                    <option value="MS">MS</option>
+                    <option value="MTED">MTED</option>
+                    <option value="MTM">MTM</option>
+                    <option value="MUED">MUED</option>
+                    <option value="MUSC">MUSC</option>
+                    <option value="NUCS">NUCS</option>
+                    <option value="NUFS">NUFS</option>
+                    <option value="NURS">NURS</option>
+                    <option value="OCTH">OCTH</option>
+                    <option value="ORGS">ORGS</option>
+                    <option value="PADM">PADM</option>
+                    <option value="PERS">PERS</option>
+                    <option value="PH">PH</option>
+                    <option value="PHIL">PHIL</option>
+                    <option value="PHOT">PHOT</option>
+                    <option value="PHYS">PHYS</option>
+                    <option value="PKG">PKG</option>
+                    <option value="POLS">POLS</option>
+                    <option value="PORT">PORT</option>
+                    <option value="PR">PR</option>
+                    <option value="PSYC">PSYC</option>
+                    <option value="RECL">RECL</option>
+                    <option value="RELS">RELS</option>
+                    <option value="RTVF">RTVF</option>
+                    <option value="SCED">SCED</option>
+                    <option value="SCI">SCI</option>
+                    <option value="SCWK">SCWK</option>
+                    <option value="SE">SE</option>
+                    <option value="SMPD">SMPD</option>
+                    <option value="SOCI">SOCI</option>
+                    <option value="SOCS">SOCS</option>
+                    <option value="SPAN">SPAN</option>
+                    <option value="SPED">SPED</option>
+                    <option value="SSCI">SSCI</option>
+                    <option value="SSED">SSED</option>
+                    <option value="STAT">STAT</option>
+                    <option value="TA">TA</option>
+                    <option value="TAG">TAG</option>
+                    <option value="TECH">TECH</option>
+                    <option value="UNVS">UNVS</option>
+                    <option value="URBP">URBP</option>
+                    <option value="VIET">VIET</option>
+                    <option value="WOMS">WOMS</option>
+                    <option value="ZOOL">ZOOL</option>
+                </optgroup>
+            </select>
+        </p>
+        <p class="form-box">
+            <label for="number">Course Number</label>
+            <input id="number" name="number" size = "8" required>
+        </p>
+            <input type="button" class="btn" onclick="getCourse()" value = "Add Course">
+            <input type="button" class="btn" onclick="removeCourse()" value="Remove Course">
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </div>
+
+    </form>
+
+        <!-- End: Navigation with Search -->
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    
+
+    
+</body>
+
+</html>

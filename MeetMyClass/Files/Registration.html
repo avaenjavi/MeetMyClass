@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+	function confirmPW()
+		{
+			var SJSUid = document.forms["register"]["ID"].value;
+			var password1 = document.forms["register"]["password"].value;
+			var password2 = document.forms["register"]["confirm_password"].value;
+			var email = document.forms["register"]["email"].value;
+			
+			if (password1 != password2)
+			{
+				alert("Passwords do not match. Please re-enter password");
+				return false;
+			}
+			else
+			{	
+				if (SJSUid == localStorage.SJSUid)
+				{
+					alert("SJSU ID: " + SJSUid + " has already been registered. Please log in");
+				}
+				else
+				{
+					localStorage.SJSUid = SJSUid;
+					localStorage.userPassword = password1;
+					localStorage.email = email;
+					alert("Account successfully created");
+					document.getElementById("register").reset();
+				}
+			}
+		}
+</script>
+</head>
+<body>
+	<div class="container">
+	<div class = "header" data-tilt data-tilt-max="10">
+		<img src = "Logo.png" width = "100%" alt = "MeetMyClass">
+	</div>
+	</div>
+
+	<form name="register" onsubmit ="return confirmPW()" action="login.html" method = "POST">
+		<div class="form">
+			<label>SJSU ID</label>
+			<input type="text" name="ID" required maxlength = "9">
+		</div>
+		<div class="form">
+			<label>Email</label>
+			<input type="email" name="email" required>
+		</div>
+		<div class="form">
+			<label>Password</label>
+			<input type="password" name="password" required>
+		</div>
+		<div class="form">
+			<label>Confirm Password</label>
+			<input type="password" name="confirm_password" required>
+		</div>
+		<div class="form">
+			<button type = "submit" name = "register" class = "button">Register</button>
+		</div>
+		<p>
+			Already have an account? <a href="login.html">Sign in</a>
+		</p>
+	</form>
+
+<script src="assets/tilt/vanilla-tilt.min.js"></script>
+
+</body>
+</html>
